@@ -1,0 +1,64 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,Noto Sans,42,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,1,0,0,0,100,100,0,0,3,14,0,2,120,120,36,1
+Style: Chip,Noto Sans,40,&H0050E05A,&H00FFFFFF,&H00000000,&H20101010,1,0,0,0,100,100,0,0,3,16,0,9,40,40,80,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.60,0:00:02.53,Sub,,0,0,0,,Your money lives on many chains now.
+Dialogue: 0,0:00:02.53,0:00:05.27,Sub,,0,0,0,,Your paycheck lands on Base, you spend on Unichain,
+Dialogue: 0,0:00:05.27,0:00:07.84,Sub,,0,0,0,,and no wallet can tell you what you spent today,
+Dialogue: 0,0:00:07.84,0:00:09.62,Sub,,0,0,0,,or stop you before you overspend.
+Dialogue: 0,0:00:11.00,0:00:14.85,Sub,,0,0,0,,Ledgerline is a cross-chain budget and savings autopilot that
+Dialogue: 0,0:00:14.85,0:00:16.99,Sub,,0,0,0,,runs entirely on Reactive Network.
+Dialogue: 0,0:00:16.99,0:00:20.58,Sub,,0,0,0,,Set your rules once: a daily limit and an auto-save rate.
+Dialogue: 0,0:00:20.58,0:00:23.04,Sub,,0,0,0,,Then forget it. No servers, no keepers,
+Dialogue: 0,0:00:23.04,0:00:23.55,Sub,,0,0,0,,no bots.
+Dialogue: 0,0:00:24.70,0:00:28.33,Sub,,0,0,0,,One reactive contract on Lasna subscribes to ERC-20 Transfer
+Dialogue: 0,0:00:28.33,0:00:31.00,Sub,,0,0,0,,events on Base Sepolia and Unichain Sepolia,
+Dialogue: 0,0:00:31.00,0:00:34.51,Sub,,0,0,0,,and keeps a single ledger. Income triggers a callback that
+Dialogue: 0,0:00:34.51,0:00:38.02,Sub,,0,0,0,,sweeps ten percent into a savings vault on the same chain.
+Dialogue: 0,0:00:38.02,0:00:40.93,Sub,,0,0,0,,Crossing your daily limit, summed across chains,
+Dialogue: 0,0:00:40.93,0:00:44.50,Sub,,0,0,0,,locks every vault at once. And a Cron subscription writes a
+Dialogue: 0,0:00:44.50,0:00:46.44,Sub,,0,0,0,,statement on chain, on schedule.
+Dialogue: 0,0:00:47.60,0:00:50.01,Sub,,0,0,0,,This is a real run on public testnets.
+Dialogue: 0,0:00:50.01,0:00:52.05,Sub,,0,0,0,,On the left, the live dashboard.
+Dialogue: 0,0:00:52.05,0:00:54.33,Sub,,0,0,0,,On the right, our end-to-end script.
+Dialogue: 0,0:00:55.60,0:00:58.02,Sub,,0,0,0,,Five hundred test dollars arrive on Base.
+Dialogue: 0,0:00:58.02,0:01:01.45,Sub,,0,0,0,,About four seconds later, fifty are already in the savings
+Dialogue: 0,0:01:01.45,0:01:03.57,Sub,,0,0,0,,vault, swept by a Reactive callback.
+Dialogue: 0,0:01:06.60,0:01:08.38,Sub,,0,0,0,,Two hundred arrive on Unichain.
+Dialogue: 0,0:01:08.38,0:01:11.93,Sub,,0,0,0,,Same rule, different chain. The vault's own pull comes back to
+Dialogue: 0,0:01:11.93,0:01:14.17,Sub,,0,0,0,,Lasna, booked as savings, not spending.
+Dialogue: 0,0:01:19.10,0:01:21.06,Sub,,0,0,0,,Now we spend seventy on Unichain,
+Dialogue: 0,0:01:21.06,0:01:24.67,Sub,,0,0,0,,then forty on Base. That crosses the one hundred dollar daily
+Dialogue: 0,0:01:24.67,0:01:26.69,Sub,,0,0,0,,limit, counted across both chains,
+Dialogue: 0,0:01:26.69,0:01:29.95,Sub,,0,0,0,,so Ledgerline locks the vaults on Base and on Unichain,
+Dialogue: 0,0:01:29.95,0:01:31.31,Sub,,0,0,0,,in about three seconds.
+Dialogue: 0,0:01:33.10,0:01:36.59,Sub,,0,0,0,,Moves between my own wallets are neither income nor spending.
+Dialogue: 0,0:01:36.59,0:01:39.39,Sub,,0,0,0,,Finally, a statement snapshot is written to Base.
+Dialogue: 0,0:01:55.90,0:01:59.91,Sub,,0,0,0,,On the Reactscan explorer, that one Lasna transaction fans out
+Dialogue: 0,0:01:59.91,0:02:01.98,Sub,,0,0,0,,into two callbacks: one to Base,
+Dialogue: 0,0:02:01.98,0:02:04.05,Sub,,0,0,0,,one to Unichain, both confirmed.
+Dialogue: 0,0:02:06.10,0:02:09.47,Sub,,0,0,0,,Every step is a transaction you can open in an explorer.
+Dialogue: 0,0:02:09.47,0:02:11.51,Sub,,0,0,0,,Full loops, from the origin chain,
+Dialogue: 0,0:02:11.51,0:02:14.33,Sub,,0,0,0,,through Lasna, and back to a destination chain,
+Dialogue: 0,0:02:14.33,0:02:16.20,Sub,,0,0,0,,finish in three to six seconds.
+Dialogue: 0,0:02:17.30,0:02:20.13,Sub,,0,0,0,,Statements also run from Reactive's Cron events.
+Dialogue: 0,0:02:20.13,0:02:23.43,Sub,,0,0,0,,Here, a Cron tick on Lasna wrote a statement to Base two
+Dialogue: 0,0:02:23.43,0:02:26.08,Sub,,0,0,0,,seconds later, with nobody pressing a button.
+Dialogue: 0,0:02:27.40,0:02:29.32,Sub,,0,0,0,,Ledgerline. Set your rules once,
+Dialogue: 0,0:02:29.32,0:02:31.60,Sub,,0,0,0,,and Reactive keeps your money in line,
+Dialogue: 0,0:02:31.60,0:02:33.52,Sub,,0,0,0,,across every chain. Code, tests,
+Dialogue: 0,0:02:33.52,0:02:36.46,Sub,,0,0,0,,and deployment scripts are open source on GitHub.
+Dialogue: 1,0:00:55.80,0:01:06.60,Chip,,0,0,0,,{\fad(200,200)}✓ Auto-save on Base  ·  3.85 s
+Dialogue: 1,0:01:07.00,0:01:19.10,Chip,,0,0,0,,{\fad(200,200)}✓ Auto-save on Unichain  ·  5.32 s
+Dialogue: 1,0:01:19.50,0:01:26.10,Chip,,0,0,0,,{\fad(200,200)}Spend 70 on Unichain  ·  today 70 / 100
+Dialogue: 1,0:01:26.30,0:01:32.90,Chip,,0,0,0,,{\fad(200,200)}Limit crossed → vaults locked: Base 3.05 s · Unichain 3.54 s
+Dialogue: 1,0:01:33.10,0:01:41.60,Chip,,0,0,0,,{\fad(200,200)}Own-wallet move: not income, not spending
+Dialogue: 1,0:01:41.80,0:01:55.10,Chip,,0,0,0,,{\fad(200,200)}✓ Statement written to Base  ·  2.5 s

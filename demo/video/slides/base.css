@@ -1,0 +1,11 @@
+html,body{margin:0;width:1920px;height:1080px;background:#0d1117;color:#e6edf3;font-family:"Noto Sans","DejaVu Sans",system-ui,sans-serif;overflow:hidden}
+.s{box-sizing:border-box;width:1920px;height:1080px;padding:110px 140px;display:flex;flex-direction:column;justify-content:center}
+h1{font-size:96px;margin:0 0 30px;letter-spacing:-2px}
+h2{font-size:64px;margin:0 0 40px;letter-spacing:-1px}
+p,li{font-size:40px;line-height:1.45;color:#c9d1d9}
+.accent{color:#3fb950}.blue{color:#58a6ff}.warn{color:#d29922}.red{color:#f85149}.muted{color:#8b949e}
+.kicker{font-size:30px;text-transform:uppercase;letter-spacing:6px;color:#3fb950;margin-bottom:24px}
+ul{margin:0;padding-left:50px}
+.box{border:2px solid #30363d;border-radius:20px;background:#161b22;padding:28px 34px}
+table{border-collapse:collapse;font-size:34px}td,th{padding:14px 28px;border-bottom:1px solid #30363d;text-align:left}th{color:#8b949e;font-weight:500}
+code{font-family:"DejaVu Sans Mono",monospace;font-size:.85em;color:#79c0ff}

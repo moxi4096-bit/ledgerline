@@ -1,0 +1,24 @@
+<html><head><link rel="stylesheet" href="base.css"><style>
+.n{position:absolute;border:3px solid #30363d;border-radius:22px;background:#161b22;padding:22px 28px;font-size:30px;line-height:1.35}
+.n b{font-size:36px}.n small{color:#8b949e;font-size:24px}
+.lbl{position:absolute;font-size:24px;color:#8b949e;background:#0d1117;padding:2px 10px}
+</style></head><body><div class="s" style="justify-content:flex-start;padding-top:70px;transform:scale(0.9);transform-origin:50% 0">
+<div class="kicker">Architecture</div><h2 style="margin-bottom:0">One reactive contract, two chains, three loops</h2>
+<svg width="1920" height="1080" style="position:absolute;left:0;top:0">
+ <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#8b949e"/></marker>
+ <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#3fb950"/></marker></defs>
+ <path d="M560,430 C700,430 700,560 760,560" stroke="#8b949e" stroke-width="4" fill="none" marker-end="url(#a)"/>
+ <path d="M560,800 C700,800 700,680 760,680" stroke="#8b949e" stroke-width="4" fill="none" marker-end="url(#a)"/>
+ <path d="M1160,560 C1260,560 1260,430 1360,430" stroke="#3fb950" stroke-width="4" fill="none" marker-end="url(#g)"/>
+ <path d="M1160,680 C1260,680 1260,800 1360,800" stroke="#3fb950" stroke-width="4" fill="none" marker-end="url(#g)"/>
+ <path d="M960,880 L960,760" stroke="#58a6ff" stroke-width="4" fill="none" marker-end="url(#a)" stroke-dasharray="10 8"/>
+</svg>
+<div class="n" style="left:140px;top:340px;width:380px"><b>Base Sepolia</b><br>lUSD <code>Transfer</code> events<br><small>income · spending · own moves</small></div>
+<div class="n" style="left:140px;top:710px;width:380px"><b>Unichain Sepolia</b><br>lUSD <code>Transfer</code> events<br><small>income · spending · own moves</small></div>
+<div class="n" style="left:740px;top:500px;width:440px;border-color:#58a6ff"><b class="blue">LedgerlineReactive</b><br>on Reactive Lasna<br><small>subscribe() → react() → unified ledger<br>requestCallbackV_1_0()</small></div>
+<div class="n" style="left:1360px;top:330px;width:420px;border-color:#3fb950"><b>SavingsVault</b> <small>Base</small><br>sweep() · lock()<br><b>Statement</b> <small>Base</small><br>record()</div>
+<div class="n" style="left:1360px;top:720px;width:420px;border-color:#3fb950"><b>SavingsVault</b> <small>Unichain</small><br>sweep() · lock()</div>
+<div class="n" style="left:790px;top:880px;width:340px;text-align:center"><b class="blue">Cron</b> <small>system events</small><br>periodic statements</div>
+<div class="lbl" style="left:600px;top:465px">Transfer logs</div>
+<div class="lbl" style="left:1210px;top:465px;color:#3fb950">callbacks</div>
+</div></body></html>

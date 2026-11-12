@@ -1,0 +1,332 @@
+{
+  "run_at_utc": "20261112T080123Z",
+  "deployments": {
+    "deployer": "0x4Ac1a699eE6E5bd885D1E0eeabF5Ddf158517071",
+    "lasna": {
+      "ledgerline": "0x3999E7FE2C02ea813D11A9efb1931a12801d6e4e"
+    },
+    "base": {
+      "token": "0xaD54509aC14a7B72B45EFD2391481f9D033972B7",
+      "vault": "0xEEEB7e47871635493D30Dc38Dd71A61968Fe9264",
+      "statement": "0x2bD88373BD600dD6ac7f7229938B4EfD0f4ec372"
+    },
+    "unichain": {
+      "token": "0x20372FE6EaeA5e0dA7c7Ce9e6dc5F3bEC881963B",
+      "vault": "0x1dae07639262Ca4A8f728D38fc75FfdB68f37872"
+    }
+  },
+  "loops": [
+    {
+      "name": "auto-save on base-sepolia",
+      "description": "Income arrives -> 10% swept into the SavingsVault on the same chain",
+      "hops": [
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0x0cb2ee7d4a267824e14f89fc1776c78b190405d4768b2fbb30a8bd93f287af65",
+          "block": 57742810,
+          "block_timestamp": 1794470430,
+          "seen_at": 1794470432.38015,
+          "url": "https://sepolia.basescan.org/tx/0x0cb2ee7d4a267824e14f89fc1776c78b190405d4768b2fbb30a8bd93f287af65",
+          "note": "income: 500 lUSD minted to wallet"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0xe2df197891db57be4ad0083fa193f8513e2a4c002dcfdd039a97ed89273e5f4c",
+          "block": 8149318,
+          "block_timestamp": 1794470430,
+          "seen_at": 1794470433.393413,
+          "url": "https://lasna.reactscan.net/tx/0xe2df197891db57be4ad0083fa193f8513e2a4c002dcfdd039a97ed89273e5f4c",
+          "note": "react(): IncomeRecorded + SweepRequested"
+        },
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0x84313bd680e99d48029fde810a1c6bde4652a3890847b7dd05bf4f21dc26f7ee",
+          "block": 57742818,
+          "block_timestamp": 1794470432,
+          "seen_at": 1794470435.4830265,
+          "url": "https://sepolia.basescan.org/tx/0x84313bd680e99d48029fde810a1c6bde4652a3890847b7dd05bf4f21dc26f7ee",
+          "note": "callback: SavingsVault.sweep"
+        }
+      ],
+      "latency": {
+        "chain_time_s": 2,
+        "wall_time_s": 3.1,
+        "origin_to_reactive_wall_s": 1.01
+      }
+    },
+    {
+      "name": "savings confirmed (base-sepolia)",
+      "description": "The vault's pull is seen on Lasna and booked as savings, not spending",
+      "hops": [
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0x84313bd680e99d48029fde810a1c6bde4652a3890847b7dd05bf4f21dc26f7ee",
+          "block": 57742818,
+          "block_timestamp": 1794470432,
+          "seen_at": 1794470435.4830265,
+          "url": "https://sepolia.basescan.org/tx/0x84313bd680e99d48029fde810a1c6bde4652a3890847b7dd05bf4f21dc26f7ee",
+          "note": "callback: SavingsVault.sweep"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x3b6847f266f827fadce8706eef2793fb30382ed9be55f6ff4fb1bd97b7baf9fe",
+          "block": 8149319,
+          "block_timestamp": 1794470431,
+          "seen_at": 1794470436.7172773,
+          "url": "https://lasna.reactscan.net/tx/0x3b6847f266f827fadce8706eef2793fb30382ed9be55f6ff4fb1bd97b7baf9fe",
+          "note": "react(): SavingsConfirmed"
+        }
+      ],
+      "latency": {
+        "chain_time_s": -1,
+        "wall_time_s": 1.23,
+        "origin_to_reactive_wall_s": 1.23
+      }
+    },
+    {
+      "name": "auto-save on unichain-sepolia",
+      "description": "Income arrives -> 10% swept into the SavingsVault on the same chain",
+      "hops": [
+        {
+          "chain": "unichain-sepolia",
+          "tx_hash": "0x632d7d2362dd68e1326f2b6530c0dd20f335e5f67eaa534e8ce599e6d585d5ab",
+          "block": 67618014,
+          "block_timestamp": 1794470442,
+          "seen_at": 1794470441.3198197,
+          "url": "https://sepolia.uniscan.xyz/tx/0x632d7d2362dd68e1326f2b6530c0dd20f335e5f67eaa534e8ce599e6d585d5ab",
+          "note": "income: 200 lUSD minted to wallet"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x3af101dfac2a542f3de69bf5dc3543ea914b4859d46787c69f0eff7af10bb2df",
+          "block": 8149329,
+          "block_timestamp": 1794470442,
+          "seen_at": 1794470445.2294242,
+          "url": "https://lasna.reactscan.net/tx/0x3af101dfac2a542f3de69bf5dc3543ea914b4859d46787c69f0eff7af10bb2df",
+          "note": "react(): IncomeRecorded + SweepRequested"
+        },
+        {
+          "chain": "unichain-sepolia",
+          "tx_hash": "0xbfdb922122f4c99584a3d9941000af34da24a922aece8ddf1c10ce29de79502c",
+          "block": 67618017,
+          "block_timestamp": 1794470445,
+          "seen_at": 1794470448.0394537,
+          "url": "https://sepolia.uniscan.xyz/tx/0xbfdb922122f4c99584a3d9941000af34da24a922aece8ddf1c10ce29de79502c",
+          "note": "callback: SavingsVault.sweep"
+        }
+      ],
+      "latency": {
+        "chain_time_s": 3,
+        "wall_time_s": 6.72,
+        "origin_to_reactive_wall_s": 3.91
+      }
+    },
+    {
+      "name": "savings confirmed (unichain-sepolia)",
+      "description": "The vault's pull is seen on Lasna and booked as savings, not spending",
+      "hops": [
+        {
+          "chain": "unichain-sepolia",
+          "tx_hash": "0xbfdb922122f4c99584a3d9941000af34da24a922aece8ddf1c10ce29de79502c",
+          "block": 67618017,
+          "block_timestamp": 1794470445,
+          "seen_at": 1794470448.0394537,
+          "url": "https://sepolia.uniscan.xyz/tx/0xbfdb922122f4c99584a3d9941000af34da24a922aece8ddf1c10ce29de79502c",
+          "note": "callback: SavingsVault.sweep"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x2758ccdc7fce67e7a16fa6e3a3f18dcfb276809c2168ba17a97788ba22836405",
+          "block": 8149331,
+          "block_timestamp": 1794470444,
+          "seen_at": 1794470449.5659952,
+          "url": "https://lasna.reactscan.net/tx/0x2758ccdc7fce67e7a16fa6e3a3f18dcfb276809c2168ba17a97788ba22836405",
+          "note": "react(): SavingsConfirmed"
+        }
+      ],
+      "latency": {
+        "chain_time_s": -1,
+        "wall_time_s": 1.53,
+        "origin_to_reactive_wall_s": 1.53
+      }
+    },
+    {
+      "name": "spend on unichain-sepolia",
+      "description": "Purchase recorded in the cross-chain daily budget",
+      "hops": [
+        {
+          "chain": "unichain-sepolia",
+          "tx_hash": "0xcadc92fdeced0309a70ca9e2935f00c8abc2b34f1a5d71dc7955d3a5ff617824",
+          "block": 67618029,
+          "block_timestamp": 1794470457,
+          "seen_at": 1794470456.9246738,
+          "url": "https://sepolia.uniscan.xyz/tx/0xcadc92fdeced0309a70ca9e2935f00c8abc2b34f1a5d71dc7955d3a5ff617824",
+          "note": "purchase: 70 lUSD to a shop"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x91406cb75b18f3d0f965923fcaa051e73d88aa637934f6eb90991a0ee14e919b",
+          "block": 8149343,
+          "block_timestamp": 1794470456,
+          "seen_at": 1794470459.9867864,
+          "url": "https://lasna.reactscan.net/tx/0x91406cb75b18f3d0f965923fcaa051e73d88aa637934f6eb90991a0ee14e919b",
+          "note": "react(): SpendRecorded"
+        }
+      ],
+      "latency": {
+        "chain_time_s": -1,
+        "wall_time_s": 3.06,
+        "origin_to_reactive_wall_s": 3.06
+      }
+    },
+    {
+      "name": "budget lock: spend on base-sepolia -> lock on base-sepolia",
+      "description": "Daily budget (summed across chains) exceeded -> every vault locked until UTC midnight",
+      "hops": [
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0xe80b84194bdff5479e7e9f3addf7cdd7e0ff4ad86ffce1fa8e1df74d770a1478",
+          "block": 57742973,
+          "block_timestamp": 1794470463,
+          "seen_at": 1794470464.8993387,
+          "url": "https://sepolia.basescan.org/tx/0xe80b84194bdff5479e7e9f3addf7cdd7e0ff4ad86ffce1fa8e1df74d770a1478",
+          "note": "purchase: 40 lUSD to a shop"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x828a8e9650fa2c54a4ee286ec35a63ab6038984c325527e8d89e34abbcb20a6a",
+          "block": 8149349,
+          "block_timestamp": 1794470463,
+          "seen_at": 1794470466.055208,
+          "url": "https://lasna.reactscan.net/tx/0x828a8e9650fa2c54a4ee286ec35a63ab6038984c325527e8d89e34abbcb20a6a",
+          "note": "react(): SpendRecorded + BudgetExceeded"
+        },
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0x5940846667ea8095f80de8706119c905a5a3f54ea1f6a4435f1d277354df27c4",
+          "block": 57742981,
+          "block_timestamp": 1794470465,
+          "seen_at": 1794470468.4753387,
+          "url": "https://sepolia.basescan.org/tx/0x5940846667ea8095f80de8706119c905a5a3f54ea1f6a4435f1d277354df27c4",
+          "note": "callback: SavingsVault.lock on base-sepolia"
+        }
+      ],
+      "latency": {
+        "chain_time_s": 2,
+        "wall_time_s": 3.58,
+        "origin_to_reactive_wall_s": 1.16
+      }
+    },
+    {
+      "name": "budget lock: spend on base-sepolia -> lock on unichain-sepolia",
+      "description": "Daily budget (summed across chains) exceeded -> every vault locked until UTC midnight",
+      "hops": [
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0xe80b84194bdff5479e7e9f3addf7cdd7e0ff4ad86ffce1fa8e1df74d770a1478",
+          "block": 57742973,
+          "block_timestamp": 1794470463,
+          "seen_at": 1794470464.8993387,
+          "url": "https://sepolia.basescan.org/tx/0xe80b84194bdff5479e7e9f3addf7cdd7e0ff4ad86ffce1fa8e1df74d770a1478",
+          "note": "purchase: 40 lUSD to a shop"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x828a8e9650fa2c54a4ee286ec35a63ab6038984c325527e8d89e34abbcb20a6a",
+          "block": 8149349,
+          "block_timestamp": 1794470463,
+          "seen_at": 1794470466.055208,
+          "url": "https://lasna.reactscan.net/tx/0x828a8e9650fa2c54a4ee286ec35a63ab6038984c325527e8d89e34abbcb20a6a",
+          "note": "react(): SpendRecorded + BudgetExceeded"
+        },
+        {
+          "chain": "unichain-sepolia",
+          "tx_hash": "0xcbd0892441ebf05897b6d06dcd874cc4a2965357d8487b1233835b17e4c9b028",
+          "block": 67618038,
+          "block_timestamp": 1794470466,
+          "seen_at": 1794470468.9643998,
+          "url": "https://sepolia.uniscan.xyz/tx/0xcbd0892441ebf05897b6d06dcd874cc4a2965357d8487b1233835b17e4c9b028",
+          "note": "callback: SavingsVault.lock on unichain-sepolia"
+        }
+      ],
+      "latency": {
+        "chain_time_s": 3,
+        "wall_time_s": 4.07,
+        "origin_to_reactive_wall_s": 1.16
+      }
+    },
+    {
+      "name": "internal move",
+      "description": "Transfer between tracked wallets: neither income nor spending",
+      "hops": [
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0xbc8ac4fc6b8019e1e4c4d7596e30006aadfdd472f7bc05c23cc1c1e160af5229",
+          "block": 57743012,
+          "block_timestamp": 1794470471,
+          "seen_at": 1794470472.862106,
+          "url": "https://sepolia.basescan.org/tx/0xbc8ac4fc6b8019e1e4c4d7596e30006aadfdd472f7bc05c23cc1c1e160af5229",
+          "note": "move 5 lUSD between two of my own wallets"
+        },
+        {
+          "chain": "lasna",
+          "tx_hash": "0x221762e97829cecc31648ebc5a22e11726a880c5bd71aa03c754c9c4a7fe402b",
+          "block": 8149356,
+          "block_timestamp": 1794470470,
+          "seen_at": 1794470473.8902748,
+          "url": "https://lasna.reactscan.net/tx/0x221762e97829cecc31648ebc5a22e11726a880c5bd71aa03c754c9c4a7fe402b",
+          "note": "react(): InternalMoveRecorded"
+        }
+      ],
+      "latency": {
+        "chain_time_s": -1,
+        "wall_time_s": 1.03,
+        "origin_to_reactive_wall_s": 1.03
+      }
+    },
+    {
+      "name": "statement",
+      "description": "Snapshot of every asset written to the Statement contract on Base Sepolia",
+      "hops": [
+        {
+          "chain": "lasna",
+          "tx_hash": "0xa88a7f48dbb4ebe210de890d4b8b540f039bc48b167521fd82051e07a26656c1",
+          "block": 8149364,
+          "block_timestamp": 1794470479,
+          "seen_at": 1794470481.2920604,
+          "url": "https://lasna.reactscan.net/tx/0xa88a7f48dbb4ebe210de890d4b8b540f039bc48b167521fd82051e07a26656c1",
+          "note": "owner asks for a statement now (cron does it on schedule)"
+        },
+        {
+          "chain": "base-sepolia",
+          "tx_hash": "0x775ac31c60e89ad040e8fabd42a2944cabe17524fa92ecf203da225f40600d52",
+          "block": 57743062,
+          "block_timestamp": 1794470481,
+          "seen_at": 1794470483.391213,
+          "url": "https://sepolia.basescan.org/tx/0x775ac31c60e89ad040e8fabd42a2944cabe17524fa92ecf203da225f40600d52",
+          "note": "callback: Statement.record"
+        }
+      ],
+      "latency": {
+        "chain_time_s": 2,
+        "wall_time_s": 2.1,
+        "origin_to_reactive_wall_s": 2.1
+      }
+    }
+  ],
+  "full_loop_latency": {
+    "count": 4,
+    "chain_time_s": [
+      2,
+      2,
+      3,
+      3
+    ],
+    "wall_time_s": [
+      3.1,
+      3.58,
+      4.07,
+      6.72
+    ]
+  }
+}

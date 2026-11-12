@@ -1,0 +1,15 @@
+{
+  "deployer": "0x4Ac1a699eE6E5bd885D1E0eeabF5Ddf158517071",
+  "lasna": {
+    "ledgerline": "0x3999E7FE2C02ea813D11A9efb1931a12801d6e4e"
+  },
+  "base": {
+    "token": "0xaD54509aC14a7B72B45EFD2391481f9D033972B7",
+    "vault": "0xEEEB7e47871635493D30Dc38Dd71A61968Fe9264",
+    "statement": "0x2bD88373BD600dD6ac7f7229938B4EfD0f4ec372"
+  },
+  "unichain": {
+    "token": "0x20372FE6EaeA5e0dA7c7Ce9e6dc5F3bEC881963B",
+    "vault": "0x1dae07639262Ca4A8f728D38fc75FfdB68f37872"
+  }
+}

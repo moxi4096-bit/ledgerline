@@ -67,7 +67,7 @@ send() {
             python3 -c "import json,sys; r=json.loads(sys.argv[1]); assert r['status']=='0x1', 'reverted: '+r['transactionHash']; print(r['transactionHash'])" "$out"
             return
         fi
-        log "    send attempt $attempt failed ($3), retrying"
+        log "    send attempt $attempt failed ($1), retrying"
         sleep $((attempt * 3))
     done
     return 1

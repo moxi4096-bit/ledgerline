@@ -1,0 +1,13 @@
+{
+ "s1": "Your money lives on many chains now. Your paycheck lands on Base, you spend on Unichain, and no wallet can tell you what you spent today, or stop you before you overspend.",
+ "s2": "Ledgerline is a cross-chain budget and savings autopilot that runs entirely on Reactive Network. Set your rules once: a daily limit and an auto-save rate. Then forget it. No servers, no keepers, no bots.",
+ "s3": "One reactive contract on Lasna subscribes to ERC-20 Transfer events on Base Sepolia and Unichain Sepolia, and keeps a single ledger. Income triggers a callback that sweeps ten percent into a savings vault on the same chain. Crossing your daily limit, summed across chains, locks every vault at once. And a Cron subscription writes a statement on chain, on schedule.",
+ "l1": "This is a real run on public testnets. On the left, the live dashboard. On the right, our end-to-end script.",
+ "l2": "Five hundred test dollars arrive on Base. About four seconds later, fifty are already in the savings vault, swept by a Reactive callback.",
+ "l3": "Two hundred arrive on Unichain. Same rule, different chain. The vault's own pull comes back to Lasna, booked as savings, not spending.",
+ "l4": "Now we spend seventy on Unichain, then forty on Base. That crosses the one hundred dollar daily limit, counted across both chains, so Ledgerline locks the vaults on Base and on Unichain, in about three seconds.",
+ "l5": "Moves between my own wallets are neither income nor spending. Finally, a statement snapshot is written to Base.",
+ "s5": "Every step is a transaction you can open in an explorer. Full loops, from the origin chain, through Lasna, and back to a destination chain, finish in three to six seconds.",
+ "s6": "Statements also run from Reactive's Cron events. Here, a Cron tick on Lasna wrote a statement to Base two seconds later, with nobody pressing a button.",
+ "s7": "Ledgerline. Set your rules once, and Reactive keeps your money in line, across every chain. Code, tests, and deployment scripts are open source on GitHub."
+}

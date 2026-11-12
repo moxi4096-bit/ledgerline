@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Recording stage for the demo video: live dashboard on the left, the e2e script's output on the right. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ledgerline live demo</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0d1117; color: #e6edf3; font-family: system-ui, sans-serif; overflow: hidden; }
+    .bar { height: 56px; display: flex; align-items: center; gap: 1rem; padding: 0 24px; border-bottom: 1px solid #30363d; font-size: 18px; }
+    .bar b { font-size: 22px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; background: #f85149; animation: blink 1.2s infinite; }
+    @keyframes blink { 50% { opacity: 0.2; } }
+    .muted { color: #8b949e; }
+    .wrap { display: grid; grid-template-columns: 1180px 1fr; height: calc(100% - 57px); }
+    iframe { border: 0; width: 1180px; height: 100%; }
+    .term { background: #010409; border-left: 1px solid #30363d; padding: 16px 18px; overflow: hidden;
+      font: 15px/1.45 "DejaVu Sans Mono", ui-monospace, monospace; white-space: pre-wrap; word-break: break-all; }
+    .term .ok { color: #3fb950; } .term .hash { color: #58a6ff; } .term .prompt { color: #d29922; }
+  </style>
+</head>
+<body>
+  <div class="bar"><span class="dot"></span><b>LIVE</b>
+    <span class="muted">Base Sepolia · Reactive Lasna · Unichain Sepolia — real testnet transactions</span></div>
+  <div class="wrap">
+    <iframe src="../dashboard/?refresh=1500&compact=1"></iframe>
+    <div class="term" id="term"></div>
+  </div>
+  <script>
+    const term = document.getElementById("term");
+    const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
+    async function tick() {
+      try {
+        const r = await fetch("run.log?" + Date.now(), { cache: "no-store" });
+        const text = r.ok ? await r.text() : "";
+        const lines = ("$ python3 script/e2e.py\n" + text).split("\n").map((l) => {
+          let h = esc(l);
+          if (l.startsWith("$")) return `<span class="prompt">${h}</span>`;
+          h = h.replace(/(0x[0-9a-fA-F]{64})/g, (m) => `<span class="hash">${m.slice(0, 18)}…${m.slice(-6)}</span>`);
+          return l.trim().startsWith("✓") ? `<span class="ok">${h}</span>` : h;
+        });
+        term.innerHTML = lines.join("\n");
+        term.scrollTop = term.scrollHeight;
+      } catch {}
+    }
+    setInterval(tick, 300);
+    tick();
+  </script>
+</body>
+</html>

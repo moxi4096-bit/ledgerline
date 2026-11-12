@@ -1,18 +1,18 @@
 {
-  "run_at_utc": "20261112T075324Z",
+  "run_at_utc": "20261112T080701Z",
   "deployments": {
     "deployer": "0x4Ac1a699eE6E5bd885D1E0eeabF5Ddf158517071",
     "lasna": {
-      "ledgerline": "0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99"
+      "ledgerline": "0xfEafe4add13eB5a7c199dcDfD944b7A7F8276Fa9"
     },
     "base": {
-      "token": "0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99",
-      "vault": "0x21037C07bf16e1B9B5e76921bb075A75A6913809",
-      "statement": "0x77c5A276E32666eFC961A3fA3783A60fb1103c76"
+      "token": "0x4380B9171D3990178d0b0fc3eB585eAeBfe65146",
+      "vault": "0x466CEdd72999181B14Afb9866AA056ea97fCD47d",
+      "statement": "0x3c81Aa54515f197662Be1A8867D460C2df1BCf3F"
     },
     "unichain": {
-      "token": "0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99",
-      "vault": "0x21037C07bf16e1B9B5e76921bb075A75A6913809"
+      "token": "0x76cC901CD283f501DfCa802f20f18a0534696Fb9",
+      "vault": "0x952527679b51cE7985FD260B9203A325857970A3"
     }
   },
   "loops": [
@@ -22,36 +22,36 @@
       "hops": [
         {
           "chain": "base-sepolia",
-          "tx_hash": "0x9337473fd9eef9e64bcca01433fe8740fe89b1bfc293616e7a9d52b321bc02cd",
-          "block": 57740407,
-          "block_timestamp": 1794469950,
-          "seen_at": 1794469951.7367406,
-          "url": "https://sepolia.basescan.org/tx/0x9337473fd9eef9e64bcca01433fe8740fe89b1bfc293616e7a9d52b321bc02cd",
+          "tx_hash": "0xcb60540cd53449c393ec65a2ceb37088512d66e890d47fd10128b50e470661ad",
+          "block": 57744504,
+          "block_timestamp": 1794470769,
+          "seen_at": 1794470771.1238437,
+          "url": "https://sepolia.basescan.org/tx/0xcb60540cd53449c393ec65a2ceb37088512d66e890d47fd10128b50e470661ad",
           "note": "income: 500 lUSD minted to wallet"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0x4f0a858428495fdd080196f34243799de65286588eaef9e82af49bb3353c5d9a",
-          "block": 8148866,
-          "block_timestamp": 1794469950,
-          "seen_at": 1794469952.7137332,
-          "url": "https://lasna.reactscan.net/tx/0x4f0a858428495fdd080196f34243799de65286588eaef9e82af49bb3353c5d9a",
+          "tx_hash": "0xbda91cfe1eabc50a793af6cf635ca9b7b2dddc26542781b3b6d36a88232b9637",
+          "block": 8149634,
+          "block_timestamp": 1794470768,
+          "seen_at": 1794470772.4731355,
+          "url": "https://lasna.reactscan.net/tx/0xbda91cfe1eabc50a793af6cf635ca9b7b2dddc26542781b3b6d36a88232b9637",
           "note": "react(): IncomeRecorded + SweepRequested"
         },
         {
           "chain": "base-sepolia",
-          "tx_hash": "0x999650952b6dda9e0f3f2d19c8d63a2c88fda0738302066dffd6f3ae2df8462f",
-          "block": 57740417,
-          "block_timestamp": 1794469952,
-          "seen_at": 1794469954.819227,
-          "url": "https://sepolia.basescan.org/tx/0x999650952b6dda9e0f3f2d19c8d63a2c88fda0738302066dffd6f3ae2df8462f",
+          "tx_hash": "0xab566add324aed4a2ff6196b6ee3cc2b1cdfd14e432feb084da81997fe0959bb",
+          "block": 57744509,
+          "block_timestamp": 1794470770,
+          "seen_at": 1794470774.978428,
+          "url": "https://sepolia.basescan.org/tx/0xab566add324aed4a2ff6196b6ee3cc2b1cdfd14e432feb084da81997fe0959bb",
           "note": "callback: SavingsVault.sweep"
         }
       ],
       "latency": {
-        "chain_time_s": 2,
-        "wall_time_s": 3.08,
-        "origin_to_reactive_wall_s": 0.98
+        "chain_time_s": 1,
+        "wall_time_s": 3.85,
+        "origin_to_reactive_wall_s": 1.35
       }
     },
     {
@@ -60,27 +60,27 @@
       "hops": [
         {
           "chain": "base-sepolia",
-          "tx_hash": "0x999650952b6dda9e0f3f2d19c8d63a2c88fda0738302066dffd6f3ae2df8462f",
-          "block": 57740417,
-          "block_timestamp": 1794469952,
-          "seen_at": 1794469954.819227,
-          "url": "https://sepolia.basescan.org/tx/0x999650952b6dda9e0f3f2d19c8d63a2c88fda0738302066dffd6f3ae2df8462f",
+          "tx_hash": "0xab566add324aed4a2ff6196b6ee3cc2b1cdfd14e432feb084da81997fe0959bb",
+          "block": 57744509,
+          "block_timestamp": 1794470770,
+          "seen_at": 1794470774.978428,
+          "url": "https://sepolia.basescan.org/tx/0xab566add324aed4a2ff6196b6ee3cc2b1cdfd14e432feb084da81997fe0959bb",
           "note": "callback: SavingsVault.sweep"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0x70b920da6d1a79cd87e7d2d0d78e2fd856aa729ba6fbf9eb7e763231a9da02c8",
-          "block": 8148867,
-          "block_timestamp": 1794469951,
-          "seen_at": 1794469955.8831675,
-          "url": "https://lasna.reactscan.net/tx/0x70b920da6d1a79cd87e7d2d0d78e2fd856aa729ba6fbf9eb7e763231a9da02c8",
+          "tx_hash": "0xad4fe6f7fdf291f21e0d5dd08252e38892136478fad5a23516f0fed60ec5a6e0",
+          "block": 8149635,
+          "block_timestamp": 1794470769,
+          "seen_at": 1794470775.9002178,
+          "url": "https://lasna.reactscan.net/tx/0xad4fe6f7fdf291f21e0d5dd08252e38892136478fad5a23516f0fed60ec5a6e0",
           "note": "react(): SavingsConfirmed"
         }
       ],
       "latency": {
         "chain_time_s": -1,
-        "wall_time_s": 1.06,
-        "origin_to_reactive_wall_s": 1.06
+        "wall_time_s": 0.92,
+        "origin_to_reactive_wall_s": 0.92
       }
     },
     {
@@ -89,36 +89,36 @@
       "hops": [
         {
           "chain": "unichain-sepolia",
-          "tx_hash": "0x73891a65021a064aae8244549b2d696160ae8bd288e9e35a0306ff0872692621",
-          "block": 67617532,
-          "block_timestamp": 1794469960,
-          "seen_at": 1794469959.9815326,
-          "url": "https://sepolia.uniscan.xyz/tx/0x73891a65021a064aae8244549b2d696160ae8bd288e9e35a0306ff0872692621",
+          "tx_hash": "0x156c4d2da8ff7ae3f4df3077319a4b3a9957a136028e99ffe209beb7692da183",
+          "block": 67618353,
+          "block_timestamp": 1794470781,
+          "seen_at": 1794470780.3742275,
+          "url": "https://sepolia.uniscan.xyz/tx/0x156c4d2da8ff7ae3f4df3077319a4b3a9957a136028e99ffe209beb7692da183",
           "note": "income: 200 lUSD minted to wallet"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0xef994d975ec75633bba8935d9e64f1675689804ed50cbce6986fe3e99f063364",
-          "block": 8148875,
-          "block_timestamp": 1794469959,
-          "seen_at": 1794469962.3923545,
-          "url": "https://lasna.reactscan.net/tx/0xef994d975ec75633bba8935d9e64f1675689804ed50cbce6986fe3e99f063364",
+          "tx_hash": "0x38566f01a42885e2adaaadaa0dfafc1a2a8ae52952a76f3d868ff76320f0c54a",
+          "block": 8149645,
+          "block_timestamp": 1794470780,
+          "seen_at": 1794470783.3513532,
+          "url": "https://lasna.reactscan.net/tx/0x38566f01a42885e2adaaadaa0dfafc1a2a8ae52952a76f3d868ff76320f0c54a",
           "note": "react(): IncomeRecorded + SweepRequested"
         },
         {
           "chain": "unichain-sepolia",
-          "tx_hash": "0x41f6dd1187659dbbcca747c6aa8a442f15d9d547972fddd13a2ecdb424d02d2f",
-          "block": 67617534,
-          "block_timestamp": 1794469962,
-          "seen_at": 1794469965.2335362,
-          "url": "https://sepolia.uniscan.xyz/tx/0x41f6dd1187659dbbcca747c6aa8a442f15d9d547972fddd13a2ecdb424d02d2f",
+          "tx_hash": "0x3b91eb7d2cae2a473293547a9e9e8853e7253788ac90e65eb467e06c7cb44aec",
+          "block": 67618355,
+          "block_timestamp": 1794470783,
+          "seen_at": 1794470785.6904612,
+          "url": "https://sepolia.uniscan.xyz/tx/0x3b91eb7d2cae2a473293547a9e9e8853e7253788ac90e65eb467e06c7cb44aec",
           "note": "callback: SavingsVault.sweep"
         }
       ],
       "latency": {
         "chain_time_s": 2,
-        "wall_time_s": 5.25,
-        "origin_to_reactive_wall_s": 2.41
+        "wall_time_s": 5.32,
+        "origin_to_reactive_wall_s": 2.98
       }
     },
     {
@@ -127,27 +127,27 @@
       "hops": [
         {
           "chain": "unichain-sepolia",
-          "tx_hash": "0x41f6dd1187659dbbcca747c6aa8a442f15d9d547972fddd13a2ecdb424d02d2f",
-          "block": 67617534,
-          "block_timestamp": 1794469962,
-          "seen_at": 1794469965.2335362,
-          "url": "https://sepolia.uniscan.xyz/tx/0x41f6dd1187659dbbcca747c6aa8a442f15d9d547972fddd13a2ecdb424d02d2f",
+          "tx_hash": "0x3b91eb7d2cae2a473293547a9e9e8853e7253788ac90e65eb467e06c7cb44aec",
+          "block": 67618355,
+          "block_timestamp": 1794470783,
+          "seen_at": 1794470785.6904612,
+          "url": "https://sepolia.uniscan.xyz/tx/0x3b91eb7d2cae2a473293547a9e9e8853e7253788ac90e65eb467e06c7cb44aec",
           "note": "callback: SavingsVault.sweep"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0xde041a85a1dd96270d955057db19790706ffb35de35267ff4b54fe0a635ea31b",
-          "block": 8148877,
-          "block_timestamp": 1794469962,
-          "seen_at": 1794469966.7864504,
-          "url": "https://lasna.reactscan.net/tx/0xde041a85a1dd96270d955057db19790706ffb35de35267ff4b54fe0a635ea31b",
+          "tx_hash": "0xa8a65ec9abcdb643a1e5a18a7841726a9d56571b899692b84a2482283a251103",
+          "block": 8149647,
+          "block_timestamp": 1794470782,
+          "seen_at": 1794470787.201797,
+          "url": "https://lasna.reactscan.net/tx/0xa8a65ec9abcdb643a1e5a18a7841726a9d56571b899692b84a2482283a251103",
           "note": "react(): SavingsConfirmed"
         }
       ],
       "latency": {
-        "chain_time_s": 0,
-        "wall_time_s": 1.55,
-        "origin_to_reactive_wall_s": 1.55
+        "chain_time_s": -1,
+        "wall_time_s": 1.51,
+        "origin_to_reactive_wall_s": 1.51
       }
     },
     {
@@ -156,27 +156,27 @@
       "hops": [
         {
           "chain": "unichain-sepolia",
-          "tx_hash": "0x4789215aff11e8ef554188dc97c19e4c04d1d2e983fe74d35bab472d21ec8247",
-          "block": 67617547,
-          "block_timestamp": 1794469975,
-          "seen_at": 1794469974.351535,
-          "url": "https://sepolia.uniscan.xyz/tx/0x4789215aff11e8ef554188dc97c19e4c04d1d2e983fe74d35bab472d21ec8247",
+          "tx_hash": "0xb0463e0e4cb6d11ee0878e04220762c9ad5a53989a7ffa7f902728d14e3447d1",
+          "block": 67618367,
+          "block_timestamp": 1794470795,
+          "seen_at": 1794470794.7742915,
+          "url": "https://sepolia.uniscan.xyz/tx/0xb0463e0e4cb6d11ee0878e04220762c9ad5a53989a7ffa7f902728d14e3447d1",
           "note": "purchase: 70 lUSD to a shop"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0x00b7f22ce7ee0669725381a721051b50464a1dde8c448dd6d6e2b99012bf4b7b",
-          "block": 8148889,
-          "block_timestamp": 1794469974,
-          "seen_at": 1794469980.0499952,
-          "url": "https://lasna.reactscan.net/tx/0x00b7f22ce7ee0669725381a721051b50464a1dde8c448dd6d6e2b99012bf4b7b",
+          "tx_hash": "0xdd4df85879b5744643ef2f0f0018d070057a25cb43bbc5765398378deca4c125",
+          "block": 8149658,
+          "block_timestamp": 1794470794,
+          "seen_at": 1794470797.940319,
+          "url": "https://lasna.reactscan.net/tx/0xdd4df85879b5744643ef2f0f0018d070057a25cb43bbc5765398378deca4c125",
           "note": "react(): SpendRecorded"
         }
       ],
       "latency": {
         "chain_time_s": -1,
-        "wall_time_s": 5.7,
-        "origin_to_reactive_wall_s": 5.7
+        "wall_time_s": 3.17,
+        "origin_to_reactive_wall_s": 3.17
       }
     },
     {
@@ -185,36 +185,36 @@
       "hops": [
         {
           "chain": "base-sepolia",
-          "tx_hash": "0x2406ee514e9d6ceacaee952de9330b14b8b912dcdf63b9da64403cc5be7943ab",
-          "block": 57740573,
-          "block_timestamp": 1794469983,
-          "seen_at": 1794469985.0541973,
-          "url": "https://sepolia.basescan.org/tx/0x2406ee514e9d6ceacaee952de9330b14b8b912dcdf63b9da64403cc5be7943ab",
+          "tx_hash": "0xd6a0f32b5284c3bfef33bf1acc5ada5ebc2fa430be998e5f7339bd9af7e20d65",
+          "block": 57744661,
+          "block_timestamp": 1794470801,
+          "seen_at": 1794470802.507657,
+          "url": "https://sepolia.basescan.org/tx/0xd6a0f32b5284c3bfef33bf1acc5ada5ebc2fa430be998e5f7339bd9af7e20d65",
           "note": "purchase: 40 lUSD to a shop"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0x4284425be649c5c79abf10519a6e381fad5900605f05798132edf19410827e94",
-          "block": 8148897,
-          "block_timestamp": 1794469983,
-          "seen_at": 1794469986.125542,
-          "url": "https://lasna.reactscan.net/tx/0x4284425be649c5c79abf10519a6e381fad5900605f05798132edf19410827e94",
+          "tx_hash": "0xe5848d39b1ce07fef50d48762a3ef61d9378f1f5a4fe2ed61589b8607cc88cc9",
+          "block": 8149664,
+          "block_timestamp": 1794470800,
+          "seen_at": 1794470803.586571,
+          "url": "https://lasna.reactscan.net/tx/0xe5848d39b1ce07fef50d48762a3ef61d9378f1f5a4fe2ed61589b8607cc88cc9",
           "note": "react(): SpendRecorded + BudgetExceeded"
         },
         {
           "chain": "base-sepolia",
-          "tx_hash": "0xdf81246a13da32edefa06320aa59877bad7b6af5156da7e6fe0a5bb4fdb97b22",
-          "block": 57740583,
-          "block_timestamp": 1794469985,
-          "seen_at": 1794469988.2105215,
-          "url": "https://sepolia.basescan.org/tx/0xdf81246a13da32edefa06320aa59877bad7b6af5156da7e6fe0a5bb4fdb97b22",
+          "tx_hash": "0xc40856a390a76a326d9e0522ffc7204a4b10854f5cc0531d2dc0fb9530fe1f54",
+          "block": 57744669,
+          "block_timestamp": 1794470802,
+          "seen_at": 1794470805.5537171,
+          "url": "https://sepolia.basescan.org/tx/0xc40856a390a76a326d9e0522ffc7204a4b10854f5cc0531d2dc0fb9530fe1f54",
           "note": "callback: SavingsVault.lock on base-sepolia"
         }
       ],
       "latency": {
-        "chain_time_s": 2,
-        "wall_time_s": 3.16,
-        "origin_to_reactive_wall_s": 1.07
+        "chain_time_s": 1,
+        "wall_time_s": 3.05,
+        "origin_to_reactive_wall_s": 1.08
       }
     },
     {
@@ -223,36 +223,36 @@
       "hops": [
         {
           "chain": "base-sepolia",
-          "tx_hash": "0x2406ee514e9d6ceacaee952de9330b14b8b912dcdf63b9da64403cc5be7943ab",
-          "block": 57740573,
-          "block_timestamp": 1794469983,
-          "seen_at": 1794469985.0541973,
-          "url": "https://sepolia.basescan.org/tx/0x2406ee514e9d6ceacaee952de9330b14b8b912dcdf63b9da64403cc5be7943ab",
+          "tx_hash": "0xd6a0f32b5284c3bfef33bf1acc5ada5ebc2fa430be998e5f7339bd9af7e20d65",
+          "block": 57744661,
+          "block_timestamp": 1794470801,
+          "seen_at": 1794470802.507657,
+          "url": "https://sepolia.basescan.org/tx/0xd6a0f32b5284c3bfef33bf1acc5ada5ebc2fa430be998e5f7339bd9af7e20d65",
           "note": "purchase: 40 lUSD to a shop"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0x4284425be649c5c79abf10519a6e381fad5900605f05798132edf19410827e94",
-          "block": 8148897,
-          "block_timestamp": 1794469983,
-          "seen_at": 1794469986.125542,
-          "url": "https://lasna.reactscan.net/tx/0x4284425be649c5c79abf10519a6e381fad5900605f05798132edf19410827e94",
+          "tx_hash": "0xe5848d39b1ce07fef50d48762a3ef61d9378f1f5a4fe2ed61589b8607cc88cc9",
+          "block": 8149664,
+          "block_timestamp": 1794470800,
+          "seen_at": 1794470803.586571,
+          "url": "https://lasna.reactscan.net/tx/0xe5848d39b1ce07fef50d48762a3ef61d9378f1f5a4fe2ed61589b8607cc88cc9",
           "note": "react(): SpendRecorded + BudgetExceeded"
         },
         {
           "chain": "unichain-sepolia",
-          "tx_hash": "0x7a35cf67d55245b50de7bcae88a00cb28f8434df2201bd066bc9d5797adef1e6",
-          "block": 67617558,
-          "block_timestamp": 1794469986,
-          "seen_at": 1794469988.7397463,
-          "url": "https://sepolia.uniscan.xyz/tx/0x7a35cf67d55245b50de7bcae88a00cb28f8434df2201bd066bc9d5797adef1e6",
+          "tx_hash": "0xb88fe068899654821e4e42ab034330e2a09112e66628070b9a6c1fedeeb1f001",
+          "block": 67618375,
+          "block_timestamp": 1794470803,
+          "seen_at": 1794470806.050933,
+          "url": "https://sepolia.uniscan.xyz/tx/0xb88fe068899654821e4e42ab034330e2a09112e66628070b9a6c1fedeeb1f001",
           "note": "callback: SavingsVault.lock on unichain-sepolia"
         }
       ],
       "latency": {
-        "chain_time_s": 3,
-        "wall_time_s": 3.69,
-        "origin_to_reactive_wall_s": 1.07
+        "chain_time_s": 2,
+        "wall_time_s": 3.54,
+        "origin_to_reactive_wall_s": 1.08
       }
     },
     {
@@ -261,27 +261,27 @@
       "hops": [
         {
           "chain": "base-sepolia",
-          "tx_hash": "0xcffa05cac435e42e2ba4c466dd37319bfd57bad64ef5419c2a40ddbf2aa5dfd9",
-          "block": 57740614,
-          "block_timestamp": 1794469991,
-          "seen_at": 1794469993.1263993,
-          "url": "https://sepolia.basescan.org/tx/0xcffa05cac435e42e2ba4c466dd37319bfd57bad64ef5419c2a40ddbf2aa5dfd9",
+          "tx_hash": "0xe7d0902f0511e859ea0f106eed1090b17505c6b643037ac76b37b736c483d7d8",
+          "block": 57744698,
+          "block_timestamp": 1794470808,
+          "seen_at": 1794470810.1265528,
+          "url": "https://sepolia.basescan.org/tx/0xe7d0902f0511e859ea0f106eed1090b17505c6b643037ac76b37b736c483d7d8",
           "note": "move 5 lUSD between two of my own wallets"
         },
         {
           "chain": "lasna",
-          "tx_hash": "0xe15c8bdc4ff3d1f4c7b2bb4dddc9266ea7244cd2ad3be8a4751cd52a41295402",
-          "block": 8148904,
-          "block_timestamp": 1794469990,
-          "seen_at": 1794469994.3483615,
-          "url": "https://lasna.reactscan.net/tx/0xe15c8bdc4ff3d1f4c7b2bb4dddc9266ea7244cd2ad3be8a4751cd52a41295402",
+          "tx_hash": "0xf520c52edfd4d461209c00e8f51ed3034aa3dea291cc2efaebb5c433ebbe7db2",
+          "block": 8149671,
+          "block_timestamp": 1794470808,
+          "seen_at": 1794470811.2378092,
+          "url": "https://lasna.reactscan.net/tx/0xf520c52edfd4d461209c00e8f51ed3034aa3dea291cc2efaebb5c433ebbe7db2",
           "note": "react(): InternalMoveRecorded"
         }
       ],
       "latency": {
-        "chain_time_s": -1,
-        "wall_time_s": 1.22,
-        "origin_to_reactive_wall_s": 1.22
+        "chain_time_s": 0,
+        "wall_time_s": 1.11,
+        "origin_to_reactive_wall_s": 1.11
       }
     },
     {
@@ -290,43 +290,43 @@
       "hops": [
         {
           "chain": "lasna",
-          "tx_hash": "0xd47a64607623e8d91f261b43b4268d70ea31d7c111160f5874c57c535adf2bcd",
-          "block": 8148912,
-          "block_timestamp": 1794469999,
-          "seen_at": 1794470001.524693,
-          "url": "https://lasna.reactscan.net/tx/0xd47a64607623e8d91f261b43b4268d70ea31d7c111160f5874c57c535adf2bcd",
+          "tx_hash": "0x657e9f937426d19d45c7ab44cbe9ceb4944a6825ffc65d5d769dfc023d458bb1",
+          "block": 8149679,
+          "block_timestamp": 1794470816,
+          "seen_at": 1794470818.4533591,
+          "url": "https://lasna.reactscan.net/tx/0x657e9f937426d19d45c7ab44cbe9ceb4944a6825ffc65d5d769dfc023d458bb1",
           "note": "owner asks for a statement now (cron does it on schedule)"
         },
         {
           "chain": "base-sepolia",
-          "tx_hash": "0xbb45aa91118e182a2d762548c660383b812f320199b5f6cd74a1d44b619a8560",
-          "block": 57740662,
-          "block_timestamp": 1794470001,
-          "seen_at": 1794470004.054138,
-          "url": "https://sepolia.basescan.org/tx/0xbb45aa91118e182a2d762548c660383b812f320199b5f6cd74a1d44b619a8560",
+          "tx_hash": "0x005b099a33e8dc892865c3765a8f1b2d9fb4f49bcb5d0948e8c0829171852da8",
+          "block": 57744748,
+          "block_timestamp": 1794470818,
+          "seen_at": 1794470820.9555695,
+          "url": "https://sepolia.basescan.org/tx/0x005b099a33e8dc892865c3765a8f1b2d9fb4f49bcb5d0948e8c0829171852da8",
           "note": "callback: Statement.record"
         }
       ],
       "latency": {
         "chain_time_s": 2,
-        "wall_time_s": 2.53,
-        "origin_to_reactive_wall_s": 2.53
+        "wall_time_s": 2.5,
+        "origin_to_reactive_wall_s": 2.5
       }
     }
   ],
   "full_loop_latency": {
     "count": 4,
     "chain_time_s": [
+      1,
+      1,
       2,
-      2,
-      2,
-      3
+      2
     ],
     "wall_time_s": [
-      3.08,
-      3.16,
-      3.69,
-      5.25
+      3.05,
+      3.54,
+      3.85,
+      5.32
     ]
   }
 }

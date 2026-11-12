@@ -1,0 +1,13 @@
+<html><head><link rel="stylesheet" href="base.css"></head><body><div class="s">
+<div class="kicker">Cron · no one presses a button</div>
+<h2>Scheduled statements from Reactive Cron events</h2>
+<div class="box" style="font-size:34px;line-height:1.6">
+<code>SYSTEM.subscribe(..., CRON_TOPIC, ...)</code> → <code>react()</code> on every cron tick → <code>Statement.record()</code> on Base<br>
+<span class="muted">Owner can retune with</span> <code>setStatementSchedule(cronTopic, minIntervalSeconds) — now Cron10000 (~2.8 h)</code>
+</div>
+<table style="margin-top:40px">
+<tr><th>Cron1000 tick · Lasna block 8,150,001 · 16:12:41 (UTC+8)</th><td><code>0x07d43c3d…f314</code></td></tr>
+<tr><th>Statement #2 recorded on Base Sepolia · 16:12:43</th><td><code>0xbef443f0…53be</code></td></tr>
+<tr><th>Tick → statement on another chain</th><td class="accent"><b>2 s</b></td></tr>
+</table>
+</div></body></html>

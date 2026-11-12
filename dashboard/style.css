@@ -43,3 +43,11 @@ th { color: var(--muted); font-weight: normal; }
 a { color: var(--accent); text-decoration: none; }
 code { background: #21262d; padding: 0.1rem 0.3rem; border-radius: 4px; }
 footer { padding: 1rem 2rem 2rem; color: var(--muted); font-size: 0.85rem; }
+
+/* Compact mode: one screen, no scrolling (demo recording). */
+body.compact { overflow: hidden; }
+body.compact header { padding: 1rem 1.5rem; }
+body.compact main { padding: 1rem 1.5rem; gap: 0.8rem; }
+body.compact .latency-card, body.compact footer { display: none; }
+body.compact .feed { max-height: 330px; }
+body.compact .tokens-card { grid-column: 1 / -1; }

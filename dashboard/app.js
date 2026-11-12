@@ -7,7 +7,7 @@ const NETWORKS = {
   base: { name: "Base Sepolia", chainId: 84532, rpc: "https://sepolia.base.org", explorer: "https://sepolia.basescan.org" },
   unichain: { name: "Unichain Sepolia", chainId: 1301, rpc: "https://sepolia.unichain.org", explorer: "https://sepolia.uniscan.xyz" },
 };
-const REFRESH_MS = 3000;
+const REFRESH_MS = Number(new URLSearchParams(location.search).get("refresh")) || 3000;
 const FEED_LOOKBACK_BLOCKS = 20000; // ~5.5 h of Lasna blocks
 const DECIMALS = 6;
 
@@ -53,20 +53,24 @@ const providers = Object.fromEntries(
 
 let deploy, ledger, seenFeed = new Set();
 
+// ?compact=1 fits everything on one screen (used when recording the demo).
+if (new URLSearchParams(location.search).has("compact")) document.body.classList.add("compact");
+
 async function init() {
   deploy = await (await fetch("../deployments/testnet.json", { cache: "no-store" })).json();
   ledger = new ethers.Contract(deploy.lasna.ledgerline, LEDGER_ABI, providers.lasna);
   $("wallet").textContent = `wallet ${short(deploy.deployer)}`;
   $("ledger-link").textContent = short(deploy.lasna.ledgerline);
   $("ledger-link").href = `${NETWORKS.lasna.explorer}/address/${deploy.lasna.ledgerline}`;
-  loadLatency();
   refresh();
   setInterval(refresh, REFRESH_MS);
 }
 
 async function refresh() {
   try {
-    await Promise.all([renderChains(), renderAssets(), renderTokens(), renderVaults(), renderStatement(), renderFeed()]);
+    await Promise.all([
+      renderChains(), renderAssets(), renderTokens(), renderVaults(), renderStatement(), renderFeed(), loadLatency(),
+    ]);
     $("updated").textContent = new Date().toLocaleTimeString();
   } catch (err) {
     console.error(err);

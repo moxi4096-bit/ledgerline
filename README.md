@@ -16,6 +16,8 @@ There is no server, bot or keeper anywhere: every action starts from an on-chain
 on-chain callback. Built for the [Reactive Omni Buildathon](https://dorahacks.io/hackathon/reactive-omni-buildathon/detail),
 track **Set It and Forget It**.
 
+**Repo:** https://github.com/moxi4096-bit/ledgerline · **Demo video (2:38):** [`demo/ledgerline-demo.mp4`](demo/ledgerline-demo.mp4)
+
 > **Why it needs Reactive:** no contract on Base can see what you spent on Unichain. The cross-chain daily
 > budget, and a lock that lands on every chain within seconds, only exist because a reactive contract
 > sees all chains at once.
@@ -98,34 +100,39 @@ argument for the reactive contract's address, which the network injects.
 
 | | Address |
 | --- | --- |
-| LedgerlineReactive (Lasna) | [`0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99`](https://lasna.reactscan.net/address/0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99) |
-| SavingsVault (Base Sepolia) | [`0x21037C07bf16e1B9B5e76921bb075A75A6913809`](https://sepolia.basescan.org/address/0x21037C07bf16e1B9B5e76921bb075A75A6913809) |
-| Statement (Base Sepolia) | [`0x77c5A276E32666eFC961A3fA3783A60fb1103c76`](https://sepolia.basescan.org/address/0x77c5A276E32666eFC961A3fA3783A60fb1103c76) |
-| lUSD (Base Sepolia) | [`0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99`](https://sepolia.basescan.org/address/0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99) |
-| SavingsVault (Unichain Sepolia) | [`0x21037C07bf16e1B9B5e76921bb075A75A6913809`](https://sepolia.uniscan.xyz/address/0x21037C07bf16e1B9B5e76921bb075A75A6913809) |
-| lUSD (Unichain Sepolia) | [`0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99`](https://sepolia.uniscan.xyz/address/0xA3BC1c0544Dc29F4e1DC1DDD62dfED3D7B1aFd99) |
+| LedgerlineReactive (Lasna) | [`0xfEafe4add13eB5a7c199dcDfD944b7A7F8276Fa9`](https://lasna.reactscan.net/address/0xfEafe4add13eB5a7c199dcDfD944b7A7F8276Fa9) |
+| SavingsVault (Base Sepolia) | [`0x466CEdd72999181B14Afb9866AA056ea97fCD47d`](https://sepolia.basescan.org/address/0x466CEdd72999181B14Afb9866AA056ea97fCD47d) |
+| Statement (Base Sepolia) | [`0x3c81Aa54515f197662Be1A8867D460C2df1BCf3F`](https://sepolia.basescan.org/address/0x3c81Aa54515f197662Be1A8867D460C2df1BCf3F) |
+| lUSD (Base Sepolia) | [`0x4380B9171D3990178d0b0fc3eB585eAeBfe65146`](https://sepolia.basescan.org/address/0x4380B9171D3990178d0b0fc3eB585eAeBfe65146) |
+| SavingsVault (Unichain Sepolia) | [`0x952527679b51cE7985FD260B9203A325857970A3`](https://sepolia.uniscan.xyz/address/0x952527679b51cE7985FD260B9203A325857970A3) |
+| lUSD (Unichain Sepolia) | [`0x76cC901CD283f501DfCa802f20f18a0534696Fb9`](https://sepolia.uniscan.xyz/address/0x76cC901CD283f501DfCa802f20f18a0534696Fb9) |
 
-(The reactive contract and both lUSD tokens share an address because each was the deployer's first
-transaction on its chain.)
+This is the deployment shown in the demo video ([`deployments/testnet.json`](deployments/testnet.json)).
+Earlier deployments of the same code, with their own full e2e runs, are kept in
+[`deployments/testnet-v1.json`](deployments/testnet-v1.json) / [`e2e-v1-latest.json`](deployments/e2e-v1-latest.json)
+and [`testnet-v2.json`](deployments/testnet-v2.json) / [`e2e-v2-latest.json`](deployments/e2e-v2-latest.json).
+Statements on the canonical deployment run on **Cron10000** (about every 2.8 h); the older ones have cron turned off.
 
 ## Proof: full loops on-chain
 
 | Loop | Origin tx | Reactive tx (Lasna) | Callback tx | Wall-clock latency |
 | --- | --- | --- | --- | --- |
-| auto-save on base-sepolia | [0x9337473f…](https://sepolia.basescan.org/tx/0x9337473fd9eef9e64bcca01433fe8740fe89b1bfc293616e7a9d52b321bc02cd) | [0x4f0a8584…](https://lasna.reactscan.net/tx/0x4f0a858428495fdd080196f34243799de65286588eaef9e82af49bb3353c5d9a) | [0x99965095…](https://sepolia.basescan.org/tx/0x999650952b6dda9e0f3f2d19c8d63a2c88fda0738302066dffd6f3ae2df8462f) | 3.08 s |
-| savings confirmed (base-sepolia) | [0x99965095…](https://sepolia.basescan.org/tx/0x999650952b6dda9e0f3f2d19c8d63a2c88fda0738302066dffd6f3ae2df8462f) | [0x70b920da…](https://lasna.reactscan.net/tx/0x70b920da6d1a79cd87e7d2d0d78e2fd856aa729ba6fbf9eb7e763231a9da02c8) | — | 1.06 s |
-| auto-save on unichain-sepolia | [0x73891a65…](https://sepolia.uniscan.xyz/tx/0x73891a65021a064aae8244549b2d696160ae8bd288e9e35a0306ff0872692621) | [0xef994d97…](https://lasna.reactscan.net/tx/0xef994d975ec75633bba8935d9e64f1675689804ed50cbce6986fe3e99f063364) | [0x41f6dd11…](https://sepolia.uniscan.xyz/tx/0x41f6dd1187659dbbcca747c6aa8a442f15d9d547972fddd13a2ecdb424d02d2f) | 5.25 s |
-| savings confirmed (unichain-sepolia) | [0x41f6dd11…](https://sepolia.uniscan.xyz/tx/0x41f6dd1187659dbbcca747c6aa8a442f15d9d547972fddd13a2ecdb424d02d2f) | [0xde041a85…](https://lasna.reactscan.net/tx/0xde041a85a1dd96270d955057db19790706ffb35de35267ff4b54fe0a635ea31b) | — | 1.55 s |
-| spend on unichain-sepolia | [0x4789215a…](https://sepolia.uniscan.xyz/tx/0x4789215aff11e8ef554188dc97c19e4c04d1d2e983fe74d35bab472d21ec8247) | [0x00b7f22c…](https://lasna.reactscan.net/tx/0x00b7f22ce7ee0669725381a721051b50464a1dde8c448dd6d6e2b99012bf4b7b) | — | 5.7 s |
-| budget lock: spend on base-sepolia -> lock on base-sepolia | [0x2406ee51…](https://sepolia.basescan.org/tx/0x2406ee514e9d6ceacaee952de9330b14b8b912dcdf63b9da64403cc5be7943ab) | [0x4284425b…](https://lasna.reactscan.net/tx/0x4284425be649c5c79abf10519a6e381fad5900605f05798132edf19410827e94) | [0xdf81246a…](https://sepolia.basescan.org/tx/0xdf81246a13da32edefa06320aa59877bad7b6af5156da7e6fe0a5bb4fdb97b22) | 3.16 s |
-| budget lock: spend on base-sepolia -> lock on unichain-sepolia | [0x2406ee51…](https://sepolia.basescan.org/tx/0x2406ee514e9d6ceacaee952de9330b14b8b912dcdf63b9da64403cc5be7943ab) | [0x4284425b…](https://lasna.reactscan.net/tx/0x4284425be649c5c79abf10519a6e381fad5900605f05798132edf19410827e94) | [0x7a35cf67…](https://sepolia.uniscan.xyz/tx/0x7a35cf67d55245b50de7bcae88a00cb28f8434df2201bd066bc9d5797adef1e6) | 3.69 s |
-| internal move | [0xcffa05ca…](https://sepolia.basescan.org/tx/0xcffa05cac435e42e2ba4c466dd37319bfd57bad64ef5419c2a40ddbf2aa5dfd9) | [0xe15c8bdc…](https://lasna.reactscan.net/tx/0xe15c8bdc4ff3d1f4c7b2bb4dddc9266ea7244cd2ad3be8a4751cd52a41295402) | — | 1.22 s |
-| statement (owner request on Lasna) | [0xd47a6460…](https://lasna.reactscan.net/tx/0xd47a64607623e8d91f261b43b4268d70ea31d7c111160f5874c57c535adf2bcd) | (same tx) | [0xbb45aa91…](https://sepolia.basescan.org/tx/0xbb45aa91118e182a2d762548c660383b812f320199b5f6cd74a1d44b619a8560) | 2.53 s |
+| auto-save on base-sepolia | [0xcb60540c…](https://sepolia.basescan.org/tx/0xcb60540cd53449c393ec65a2ceb37088512d66e890d47fd10128b50e470661ad) | [0xbda91cfe…](https://lasna.reactscan.net/tx/0xbda91cfe1eabc50a793af6cf635ca9b7b2dddc26542781b3b6d36a88232b9637) | [0xab566add…](https://sepolia.basescan.org/tx/0xab566add324aed4a2ff6196b6ee3cc2b1cdfd14e432feb084da81997fe0959bb) | 3.85 s |
+| savings confirmed (base-sepolia) | [0xab566add…](https://sepolia.basescan.org/tx/0xab566add324aed4a2ff6196b6ee3cc2b1cdfd14e432feb084da81997fe0959bb) | [0xad4fe6f7…](https://lasna.reactscan.net/tx/0xad4fe6f7fdf291f21e0d5dd08252e38892136478fad5a23516f0fed60ec5a6e0) | — | 0.92 s |
+| auto-save on unichain-sepolia | [0x156c4d2d…](https://sepolia.uniscan.xyz/tx/0x156c4d2da8ff7ae3f4df3077319a4b3a9957a136028e99ffe209beb7692da183) | [0x38566f01…](https://lasna.reactscan.net/tx/0x38566f01a42885e2adaaadaa0dfafc1a2a8ae52952a76f3d868ff76320f0c54a) | [0x3b91eb7d…](https://sepolia.uniscan.xyz/tx/0x3b91eb7d2cae2a473293547a9e9e8853e7253788ac90e65eb467e06c7cb44aec) | 5.32 s |
+| savings confirmed (unichain-sepolia) | [0x3b91eb7d…](https://sepolia.uniscan.xyz/tx/0x3b91eb7d2cae2a473293547a9e9e8853e7253788ac90e65eb467e06c7cb44aec) | [0xa8a65ec9…](https://lasna.reactscan.net/tx/0xa8a65ec9abcdb643a1e5a18a7841726a9d56571b899692b84a2482283a251103) | — | 1.51 s |
+| spend on unichain-sepolia | [0xb0463e0e…](https://sepolia.uniscan.xyz/tx/0xb0463e0e4cb6d11ee0878e04220762c9ad5a53989a7ffa7f902728d14e3447d1) | [0xdd4df858…](https://lasna.reactscan.net/tx/0xdd4df85879b5744643ef2f0f0018d070057a25cb43bbc5765398378deca4c125) | — | 3.17 s |
+| budget lock: spend on base-sepolia -> lock on base-sepolia | [0xd6a0f32b…](https://sepolia.basescan.org/tx/0xd6a0f32b5284c3bfef33bf1acc5ada5ebc2fa430be998e5f7339bd9af7e20d65) | [0xe5848d39…](https://lasna.reactscan.net/tx/0xe5848d39b1ce07fef50d48762a3ef61d9378f1f5a4fe2ed61589b8607cc88cc9) | [0xc40856a3…](https://sepolia.basescan.org/tx/0xc40856a390a76a326d9e0522ffc7204a4b10854f5cc0531d2dc0fb9530fe1f54) | 3.05 s |
+| budget lock: spend on base-sepolia -> lock on unichain-sepolia | [0xd6a0f32b…](https://sepolia.basescan.org/tx/0xd6a0f32b5284c3bfef33bf1acc5ada5ebc2fa430be998e5f7339bd9af7e20d65) | [0xe5848d39…](https://lasna.reactscan.net/tx/0xe5848d39b1ce07fef50d48762a3ef61d9378f1f5a4fe2ed61589b8607cc88cc9) | [0xb88fe068…](https://sepolia.uniscan.xyz/tx/0xb88fe068899654821e4e42ab034330e2a09112e66628070b9a6c1fedeeb1f001) | 3.54 s |
+| internal move | [0xe7d0902f…](https://sepolia.basescan.org/tx/0xe7d0902f0511e859ea0f106eed1090b17505c6b643037ac76b37b736c483d7d8) | [0xf520c52e…](https://lasna.reactscan.net/tx/0xf520c52edfd4d461209c00e8f51ed3034aa3dea291cc2efaebb5c433ebbe7db2) | — | 1.11 s |
+| statement (owner request on Lasna) | [0x657e9f93…](https://lasna.reactscan.net/tx/0x657e9f937426d19d45c7ab44cbe9ceb4944a6825ffc65d5d769dfc023d458bb1) | (same tx) | [0x005b099a…](https://sepolia.basescan.org/tx/0x005b099a33e8dc892865c3765a8f1b2d9fb4f49bcb5d0948e8c0829171852da8) | 2.5 s |
+| **statement (Cron1000 tick, nobody involved)** | Lasna block 8,150,001 | [0x07d43c3d…](https://lasna.reactscan.net/tx/0x07d43c3d83b9778f09bfa341168d3881cfaa63b0c0ef4500883fd46dd9bff314) | [0xbef443f0…](https://sepolia.basescan.org/tx/0xbef443f06500e275a004c52a31f35485687d900cb5f7b77dcc8dbabee26053be) | 2 s (block time) |
 
-Run 20261112T075324Z. Latency is measured by [`script/e2e.py`](script/e2e.py): wall clock from the origin tx's receipt to the
+Run 20261112T080701Z (the one recorded in the demo video). Latency is measured by [`script/e2e.py`](script/e2e.py): wall clock from the origin tx's receipt to the
 first time the callback's log is visible over public RPC (polled every 0.3 s, so it includes RPC lag).
 Block timestamps are recorded too, but they have 1 s resolution and the chains' clocks differ by up to a
-second, so short hops can even show −1 s. Raw results: [`deployments/e2e-latest.json`](deployments/e2e-latest.json).
+second, so short hops can even show −1 s. The cron row uses block timestamps: tick on Lasna at
+16:12:41, statement on Base Sepolia at 16:12:43 (UTC+8, 2026-11-12). Raw results: [`deployments/e2e-latest.json`](deployments/e2e-latest.json).
 
 ## Run it yourself
 
@@ -134,7 +141,7 @@ to Base/Unichain Sepolia; send some to the [Reactive faucet](https://dev.reactiv
 for lREACT).
 
 ```bash
-git clone --recursive <this repo> && cd ledgerline
+git clone --recursive https://github.com/moxi4096-bit/ledgerline && cd ledgerline
 forge test                        # 63 unit/integration tests with a mocked system contract
 cp .env.example .env              # point KEY_FILE / PRIVATE_KEY at a testnet-only key
 ./script/deploy.sh                # deploys to Lasna, Base Sepolia, Unichain Sepolia and wires it up
