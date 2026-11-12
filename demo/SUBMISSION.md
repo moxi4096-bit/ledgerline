@@ -19,7 +19,7 @@ across chains — goes over the limit. No servers, no keepers.
 ## Links
 
 - Repository: https://github.com/moxi4096-bit/ledgerline
-- Demo video (2:38, 1080p): `<VIDEO_URL>` — also in the repo at `demo/ledgerline-demo.mp4`
+- Demo video (2:38, 1080p): https://github.com/moxi4096-bit/ledgerline/blob/main/demo/ledgerline-demo.mp4 — also in the repo at `demo/ledgerline-demo.mp4`
 - Dashboard: run `python3 -m http.server` in the repo and open `/dashboard/` (static, reads chain state directly)
 
 ## Description
