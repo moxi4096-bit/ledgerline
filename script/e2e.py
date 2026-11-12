@@ -96,11 +96,20 @@ class Chain:
     def block_number(self) -> int:
         return int(self.call("eth_blockNumber", []), 16)
 
+    def call_until_found(self, method: str, params: list) -> dict:
+        """Public RPCs are load-balanced; a node a block behind returns null for fresh data. Retry."""
+        for _ in range(40):
+            result = self.call(method, params)
+            if result is not None:
+                return result
+            time.sleep(0.25)
+        raise TimeoutError(f"{self.name} {method} {params} returned null")
+
     def block_timestamp(self, number: int) -> int:
-        return int(self.call("eth_getBlockByNumber", [hex(number), False])["timestamp"], 16)
+        return int(self.call_until_found("eth_getBlockByNumber", [hex(number), False])["timestamp"], 16)
 
     def receipt(self, tx_hash: str) -> dict:
-        return self.call("eth_getTransactionReceipt", [tx_hash])
+        return self.call_until_found("eth_getTransactionReceipt", [tx_hash])
 
     def logs(self, address: str, topics: list, from_block: int) -> list[dict]:
         return self.call("eth_getLogs", [{"address": address, "topics": topics, "fromBlock": hex(from_block), "toBlock": "latest"}])
@@ -179,7 +188,14 @@ class Runner:
 
     def send(self, chain: Chain, to: str, signature: str, *args: str, key: str | None = None) -> Hop:
         cmd = ["cast", "send", "--json", "--rpc-url", chain.rpc, "--private-key", key or self.key, to, signature, *args]
-        out = subprocess.run(cmd, check=True, capture_output=True, text=True).stdout
+        for attempt in range(4):  # load-balanced public RPCs occasionally hand out a stale nonce
+            proc = subprocess.run(cmd, capture_output=True, text=True)
+            if proc.returncode == 0:
+                break
+            if attempt == 3 or "nonce" not in proc.stderr.lower():
+                raise RuntimeError(f"cast send to {to} on {chain.name} failed: {proc.stderr.strip()[:300]}")
+            time.sleep(3 * (attempt + 1))
+        out = proc.stdout
         seen = time.time()
         receipt = json.loads(out)
         if receipt["status"] != "0x1":

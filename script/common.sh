@@ -24,23 +24,60 @@ load_key() {
 
 log() { printf '\033[1;36m==>\033[0m %s\n' "$*" >&2; }
 
-# deploy <rpc> <contract path:name> <value> [constructor args...] -> prints the deployed address
+# deploy <rpc> <contract path:name> <value> [constructor args...] -> prints the deployed address.
+# Retries a few times: public RPCs behind load balancers sometimes report a stale nonce.
 deploy() {
     local rpc="$1" contract="$2" value="$3"
     shift 3
-    local args=()
+    local args=() out attempt
     [ $# -gt 0 ] && args=(--constructor-args "$@")
-    forge create --root "$ROOT" --rpc-url "$rpc" --private-key "$PRIVATE_KEY" --broadcast --json \
-        --value "$value" "$contract" "${args[@]}" \
-        | python3 -c "import json,sys; r=json.load(sys.stdin); print(r['deployedTo'])"
+    for attempt in 1 2 3 4; do
+        if out=$(forge create --root "$ROOT" --rpc-url "$rpc" --private-key "$PRIVATE_KEY" --broadcast --json \
+            --value "$value" "$contract" "${args[@]}" 2>/dev/null); then
+            python3 -c "import json,sys; print(json.loads(sys.argv[1])['deployedTo'])" "$out"
+            return 0
+        fi
+        log "    deploy attempt $attempt failed, retrying"
+        sleep $((attempt * 3))
+    done
+    return 1
+}
+
+# ensure <deployments key> <rpc> <contract> <value> [args...]: deploy once, reuse on re-runs.
+ensure() {
+    local key="$1" rpc="$2"
+    shift 2
+    local existing
+    existing=$(json_get "$key" 2>/dev/null || true)
+    if [ -n "$existing" ] && [ "$(cast codesize "$existing" --rpc-url "$rpc")" != "0" ]; then
+        echo "$existing"
+        return 0
+    fi
+    existing=$(deploy "$rpc" "$@")
+    json_set "$key" "$existing"
+    echo "$existing"
 }
 
 # send <rpc> <to> <sig> [args...] -> prints the tx hash; fails if the tx reverted
 send() {
+    local rpc="$1" to="$2" out attempt
+    shift 2
+    for attempt in 1 2 3 4; do
+        if out=$(cast send --rpc-url "$rpc" --private-key "$PRIVATE_KEY" --json "$to" "$@" 2>/dev/null); then
+            python3 -c "import json,sys; r=json.loads(sys.argv[1]); assert r['status']=='0x1', 'reverted: '+r['transactionHash']; print(r['transactionHash'])" "$out"
+            return
+        fi
+        log "    send attempt $attempt failed ($3), retrying"
+        sleep $((attempt * 3))
+    done
+    return 1
+}
+
+# call <rpc> <to> <sig> [args...] -> first word of the result
+call() {
     local rpc="$1" to="$2"
     shift 2
-    cast send --rpc-url "$rpc" --private-key "$PRIVATE_KEY" --json "$to" "$@" \
-        | python3 -c "import json,sys; r=json.load(sys.stdin); assert r['status']=='0x1', 'reverted: '+r['transactionHash']; print(r['transactionHash'])"
+    cast call --rpc-url "$rpc" "$to" "$@" | awk '{print $1; exit}'
 }
 
 # json_set <key> <value>: record a value in the deployments file
