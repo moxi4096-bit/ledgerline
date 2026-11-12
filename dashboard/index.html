@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ledgerline — one ledger for all your chains</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Ledgerline</h1>
+      <p class="tag">One ledger for all your chains, run by Reactive Network. No servers, no keepers.</p>
+    </div>
+    <div id="chains" class="chips"></div>
+  </header>
+
+  <main>
+    <section class="card wide">
+      <h2>Budget &amp; savings <small>cross-chain totals, kept on Lasna</small></h2>
+      <div id="assets" class="assets"></div>
+    </section>
+
+    <section class="card">
+      <h2>Savings vaults <small>callback contracts</small></h2>
+      <div id="vaults"></div>
+    </section>
+
+    <section class="card">
+      <h2>Latest statement <small>written by cron callback</small></h2>
+      <div id="statement"></div>
+    </section>
+
+    <section class="card">
+      <h2>Tokens watched <small>per chain</small></h2>
+      <table id="tokens"></table>
+    </section>
+
+    <section class="card">
+      <h2>Measured loop latency <small>from script/e2e.py</small></h2>
+      <div id="latency" class="muted">Run <code>python3 script/e2e.py</code> to measure.</div>
+    </section>
+
+    <section class="card wide">
+      <h2>Live activity <small>reactive transactions on Lasna</small></h2>
+      <ol id="feed" class="feed"></ol>
+    </section>
+  </main>
+
+  <footer>
+    <span id="wallet"></span> · reactive contract <a id="ledger-link" target="_blank" rel="noopener"></a>
+    · refreshed <span id="updated">never</span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

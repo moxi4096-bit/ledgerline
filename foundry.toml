@@ -1,0 +1,23 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.30"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+fs_permissions = [{ access = "read-write", path = "./deployments" }]
+
+[fmt]
+line_length = 110
+tab_width = 4
+bracket_spacing = true
+
+[rpc_endpoints]
+lasna = "https://lasna-rpc.rnk.dev/"
+base_sepolia = "https://sepolia.base.org"
+unichain_sepolia = "https://sepolia.unichain.org"
+
+[lint]
+# Day-granular budgets intentionally use block.timestamp, and callback fan-out loops are bounded.
+exclude_lints = ["block-timestamp", "calls-loop"]

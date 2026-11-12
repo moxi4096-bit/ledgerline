@@ -1,0 +1,8 @@
+out/
+cache/
+broadcast/
+.env
+secrets/
+*.key
+node_modules/
+deployments/e2e-*.tmp.json
